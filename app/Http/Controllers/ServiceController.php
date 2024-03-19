@@ -3,41 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Servicio;
+use Illuminate\Support\Facades\Log;
 
 class ServiceController extends Controller
 {
     public function insertData(Request $request)
     {
-        $data = $request->json()->all();
-        
+        // Acceder a los datos recibidos
+        $data = $request->all();
+        Log::info(gettype($data));
+        // Hacer lo que necesites con los datos...
+        foreach ($data as $row) {
+            Log::info('=================================================SEPARADORSEPARADORSEPARADOR=================================================');
+            Log::info($row);
+            Log::info('=================================================SEPARADORSEPARADORSEPARADOR=================================================');
+            //Servicio::create($rowData);
+        }
+        // Por ejemplo, puedes devolver una respuesta indicando que los datos fueron recibidos con éxito
+        return response()->json(['message' => 'Datos recibidos correctamente']);
+    }
+
+
+        //Log::info($data);
         // // Mostrar el contenido del array en PHP
         // echo "<pre>";
         // print_r($data); // Opcionalmente, puedes usar var_dump($data);
         // echo "</pre>";
 
-        foreach ($data as $row) {
-            $rowData = [
-                'condicion' => $fila['CONDICION'] ?? null,
-                'ip_loop' => $fila['IP_LOOP'] ?? null,
-                'cliente' => $fila['CLIENTE'] ?? null,
-                'cod' => $fila['COD'] ?? null,
-                'comuna' => $fila['COMUNA'] ?? null,
-                'direccion' => $fila['DIRECCION'] ?? null,
-                'lan' => $fila['LAN'] ?? null,
-                'protocolo' => $fila['PROTOCOLO'] ?? null,
-                'servicio' => $fila['SERVICIO'] ?? null,
-                'vrf' => $fila['VRF'] ?? null,
-                'wan' => $fila['WAN'] ?? null,
-                'nombre_equipo' => $fila['NOMBRE EQUIPO'] ?? null,
-                'ip_equipo' => $fila['IP EQUIPO'] ?? null,
-                'descripcion' => $fila['DESCRIPCION'] ?? null,
-                'puerta' => $fila['PUERTA'] ?? null,
-                'vlan' => $fila['VLAN'] ?? null,
-                'posiciones' => $fila['POSICIONES'] ?? null
-            ];
-            servicios::create($rowData);
-        }
-        
-        return response()->json(['message' => 'Datos insertados con éxito']);
-    }
+        // foreach ($data as $row) {
+        //     Log::info('=================================================SEPARADORSEPARADORSEPARADOR=================================================');
+        //     Log::info($row);
+        //     Log::info('=================================================SEPARADORSEPARADORSEPARADOR=================================================');
+        //     //Servicio::create($rowData);
+        // }
 }
