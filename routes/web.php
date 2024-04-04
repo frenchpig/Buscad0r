@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UploaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::get('/service_loader', function (){
     return view('services_loader');
 });
 Route::post('/service-insert', [ServiceController::class, 'insertData']);
+Route::post('/intralot-upload',[UploaderController::class, 'uploadIntralot']);
