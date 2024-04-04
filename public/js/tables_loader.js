@@ -4,6 +4,7 @@ En caso de necesitar un cargado de nuevos datos este codigo tendra que ser modif
 */
 
 var loadButton = document.getElementById('loadButton');
+var loadButtonIntralot = document.getElementById('loadButtonIntralot');
 
 loadButton.addEventListener('click', function () {
     //Trae el input de fileInput, donde deberia estar el excel
@@ -52,22 +53,6 @@ function saveToDataBase(dataArray){
             }
         });
     });
-    //Convierte array en JSON
-    // let jsonData = JSON.stringify(dataArray);
-    // $.ajax({
-    //     url: '/service-insert',
-    //     type: 'POST',
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     },
-    //     data: jsonData, // Tu JSON data aquí
-    //     success: function(response) {
-    //         console.log('Solicitud exitosa:', response);
-    //     },
-    //     error: function(xhr, status, error) {
-    //         console.error('Error en la solicitud:', error);
-    //     }
-    // });
 }
 
 
