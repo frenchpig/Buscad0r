@@ -23,3 +23,4 @@ Route::get('/service_loader', function (){
 });
 Route::post('/service-insert', [ServiceController::class, 'insertData']);
 Route::post('/intralot-upload',[UploaderController::class, 'uploadIntralot']);
+Route::post('/dataloteria-upload',[UploaderController::class, 'uploadDataLoteria']);

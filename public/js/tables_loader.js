@@ -5,6 +5,7 @@ En caso de necesitar un cargado de nuevos datos este codigo tendra que ser modif
 
 var loadButton = document.getElementById('loadButton');
 var loadButtonIntralot = document.getElementById('loadButtonIntralot');
+var loadButtonDataLoteria = document.getElementById('loadButtonDataLoteria');
 
 loadButton.addEventListener('click', function () {
     //Trae el input de fileInput, donde deberia estar el excel
@@ -35,17 +36,23 @@ loadButton.addEventListener('click', function () {
 });
 
 loadButtonIntralot.addEventListener('click', function(){
-    console.log('algo');
     //Trae el input de fileInput, donde deberia estar el excel
     let fileInput = document.getElementById('fileInputIntralot');
-    console.log(fileInput);
     //separa los datos del input quedando solo con el archivo excel
     let file = fileInput.files[0];
-    console.log(file);
     readFile(file, function(data){
-        console.log(data);
         sendToDatabase(data,'/intralot-upload');
     })
+});
+
+loadButtonDataLoteria.addEventListener('click', function(){
+    console.log('click');
+    let fileInput = document.getElementById('fileInputDataLoteria');
+    let file = fileInput.files[0];
+    readFile(file, function(data){
+        console.log(data);
+        sendToDatabase(data,'/dataloteria-upload');
+    });
 });
 
 function readFile(file, callback){

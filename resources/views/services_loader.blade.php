@@ -26,7 +26,14 @@
             </div>
                 <button id="loadButtonIntralot" class="btn btn-primary">Cargar</button>
         </div>
-        <div class="col-3"></div>
+        <div class="col-3">
+            {{-- Cargador de Data-Loteria --}}
+            <div class="mb-3">
+                <label for="fileInputDataLoteria" class="form-label">Seleccione el archivo de Data Loteria:</label>
+                <input type="file" class="form-control" id="fileInputDataLoteria" name="fileInputDataLoteria" accept=".xls, .xlsx">
+            </div>
+                <button id="loadButtonDataLoteria" class="btn btn-primary">Cargar</button>
+        </div>
     </div>
     
     
