@@ -6,6 +6,7 @@ En caso de necesitar un cargado de nuevos datos este codigo tendra que ser modif
 var loadButton = document.getElementById('loadButton');
 var loadButtonIntralot = document.getElementById('loadButtonIntralot');
 var loadButtonDataLoteria = document.getElementById('loadButtonDataLoteria');
+var loadButtonDatoRutas = document.getElementById('loadButtonDatoRutas');
 
 loadButton.addEventListener('click', function () {
     //Trae el input de fileInput, donde deberia estar el excel
@@ -35,6 +36,15 @@ loadButton.addEventListener('click', function () {
     }
 });
 
+loadButtonDatoRutas.addEventListener('click', function(){
+    let fileInput = document.getElementById('fileInputDatoRutas');
+    let file = fileInput.files[0];
+    readFile(file, function(data){
+        console.log(data);
+        sendToDatabase(data,'/datorutas-upload');
+    });
+});
+
 loadButtonIntralot.addEventListener('click', function(){
     //Trae el input de fileInput, donde deberia estar el excel
     let fileInput = document.getElementById('fileInputIntralot');
@@ -46,7 +56,6 @@ loadButtonIntralot.addEventListener('click', function(){
 });
 
 loadButtonDataLoteria.addEventListener('click', function(){
-    console.log('click');
     let fileInput = document.getElementById('fileInputDataLoteria');
     let file = fileInput.files[0];
     readFile(file, function(data){

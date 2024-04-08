@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Intralot;
 use App\Models\DataLoteria;
+use App\Models\DatoRuta;
 
 class UploaderController extends Controller
 {
@@ -64,5 +65,32 @@ class UploaderController extends Controller
             ];
             DataLoteria::create($dataLoad);
         }
+        return response()->json(['message' => 'Datos de Loteria recibidos correctamente']);
+    }
+
+    public function uploadDatoRutas (Request $request) {
+        $data = $request->all();
+        foreach ($data as $row) {
+            $dataLoad = [
+                'CLIENTE'=> $row['CLIENTE'] ?? null,
+                'NUMERO_DE_SERVICIO'=> $row['NUMERO DE SERVICIO'] ?? null,
+                'TIPO_ENLACE'=> $row['TIPO ENLACE'] ?? null,
+                'LADO_A'=> $row['LADO A'] ?? null,
+                'NODO'=> $row['NODO'] ?? null,
+                'RUTA'=> $row['RUTA'] ?? null,
+                'RACK_A'=> $row['RACK A'] ?? null,
+                'ODF_A'=> $row['ODF A'] ?? null,
+                'POS_A'=> $row['POS A'] ?? null,
+                'LADO_B'=> $row['LADO B'] ?? null,
+                'SALA'=> $row['SALA'] ?? null,
+                'RACK_B'=> $row['RACK B'] ?? null,
+                'ODF_B'=> $row['ODF B'] ?? null,
+                'POS_B'=> $row['POS B'] ?? null,
+                'NIVELES_HISTORICOS'=> $row['NIVELES HISTORICOS'] ?? null,
+                'Seguimiento_y_contactos'=> $row['Seguimiento y contactos'] ?? null
+            ];
+            DatoRuta::create($dataLoad);
+        }
+        return response()->json(['message' => 'Datos de Ruta recibidos correctamente']);
     }
 }
