@@ -42,6 +42,14 @@
             </div>
                 <button id="loadButtonDatoRutas" class="btn btn-primary">Cargar</button>
         </div>
+        <div class="col-3">
+            {{-- Cargador de Data --}}
+            <div class="mb-3">
+                <label for="fileInputData" class="form-label">Seleccione el archivo de Data:</label>
+                <input type="file" class="form-control" id="fileInputData" name="fileInputData" accept=".xls, .xlsx">
+            </div>
+                <button id="loadButtonData" class="btn btn-primary">Cargar</button>
+        </div>
     </div>
     
     

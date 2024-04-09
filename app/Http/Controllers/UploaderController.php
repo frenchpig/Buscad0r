@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Intralot;
 use App\Models\DataLoteria;
 use App\Models\DatoRuta;
+use App\Models\Data;
 
 class UploaderController extends Controller
 {
@@ -92,5 +93,25 @@ class UploaderController extends Controller
             DatoRuta::create($dataLoad);
         }
         return response()->json(['message' => 'Datos de Ruta recibidos correctamente']);
+    }
+
+    public function uploadData (Request $request) {
+        $data = $request->all();
+        foreach ($data as $row) {
+            $dataLoad = [
+                'Equipo'=> $row['Equipo'] ?? null,
+                'Comuna'=> $row['Comuna'] ?? null,
+                'Sitio'=> $row['Sitio'] ?? null,
+                'Proveedor'=> $row['Proveedor'] ?? null,
+                'Familia'=> $row['Familia'] ?? null,
+                'Plataforma'=> $row['Plataforma'] ?? null,
+                'IP'=> $row['IP'] ?? null,
+                'Descriptor'=> $row['Descriptor'] ?? null,
+                'Contraseña'=> $row['Contraseña'] ?? null,
+                'N_Nodo'=> $row['N° Nodo'] ?? null,
+            ];
+            Data::create($dataLoad);
+        }
+        return response()->json(['message' => 'Datos de Data recibidos correctamente']);
     }
 }
