@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UploaderController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,12 @@ Route::get('/', function () {
 Route::get('/service_loader', function (){
     return view('services_loader');
 });
+Route::get('/buscar', function (){
+    return view('searcher');
+});
 Route::post('/service-insert', [ServiceController::class, 'insertData']);
 Route::post('/intralot-upload',[UploaderController::class, 'uploadIntralot']);
 Route::post('/dataloteria-upload',[UploaderController::class, 'uploadDataLoteria']);
 Route::post('/datorutas-upload',[UploaderController::class,'uploadDatoRutas']);
 Route::post('/data-upload',[UploaderController::class,'uploadData']);
+Route::post('/service-search',[SearchController::class,'searchService']);
