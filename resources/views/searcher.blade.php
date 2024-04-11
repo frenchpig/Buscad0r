@@ -40,7 +40,7 @@
             <div class="row">
               <div class="col">
                 <div class="mb-3">
-                  <label for="cod" class="form-label">Cod</label>
+                  <label for="cod" class="form-label">Codigo de Servicio</label>
                   <input type="text" class="form-control" id="cod">
                 </div>
               </div>
@@ -59,12 +59,6 @@
             </div>
             {{-- Fila 3 --}}
             <div class="row">
-              <div class="col">
-                <div class="mb-3">
-                  <label for="direccion" class="form-label">Direccion</label>
-                  <input type="text" class="form-control" id="direccion" readonly>
-                </div>
-              </div>
               <div class="col">
                 <div class="mb-3">
                   <label for="lan" class="form-label">LAN</label>
