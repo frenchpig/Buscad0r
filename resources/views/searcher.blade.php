@@ -144,6 +144,107 @@
         </div>
       </div>
     </div>
+    {{-- Fin Buscador de Servicio --}}
+    {{-- Inicio Buscador de Intralot --}}
+    <div class="row m-2">
+      <div class="col-12">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Servicio</h5>
+                  {{-- Fila 1 --}}
+                  <div class="row">
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="LOTOS_INTRALOT" class="form-label">Lotos Intralot</label>
+                              <input type="text" class="form-control" id="LOTOS_INTRALOT" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="DIRECCION" class="form-label">Direccion</label>
+                              <input type="text" class="form-control" id="DIRECCION" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="COD_DE_SERVICIO" class="form-label">Codigo De Servicio</label>
+                              <input type="text" class="form-control" id="COD_DE_SERVICIO">
+                          </div>
+                      </div>
+                  </div>
+                  {{-- Fila 2 --}}
+                  <div class="row">
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="CIUDAD" class="form-label">Ciudad</label>
+                              <input type="text" class="form-control" id="CIUDAD" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="RED_LAN" class="form-label">Red LAN</label>
+                              <input type="text" class="form-control" id="RED_LAN" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="MASCARA" class="form-label">Mascara</label>
+                              <input type="text" class="form-control" id="MASCARA" readonly>
+                          </div>
+                      </div>
+                  </div>
+                  {{-- Fila 3 --}}
+                  <div class="row">
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="IP_LOOPBACK" class="form-label">IP LOOPBACK</label>
+                              <input type="text" class="form-control" id="IP_LOOPBACK" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="CTO_AGENCIA" class="form-label">Contacto Agencia</label>
+                              <input type="text" class="form-control" id="CTO_AGENCIA" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="TLF_AGENCIA" class="form-label">Telefono Agencia</label>
+                              <input type="text" class="form-control" id="TLF_AGENCIA" readonly>
+                          </div>
+                      </div>
+                  </div>
+                  {{-- Fila 4 --}}
+                  <div class="row">
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="EQUIPO" class="form-label">Equipo</label>
+                              <input type="text" class="form-control" id="EQUIPO" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="Equipo2" class="form-label">Equipo 2</label>
+                              <input type="text" class="form-control" id="Equipo2" readonly>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="mb-3">
+                              <label for="Chip" class="form-label">Chip</label>
+                              <input type="text" class="form-control" id="Chip" readonly>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <button id="searchButtonIntralot" class="btn btn-primary w-100">Buscar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    {{-- Fin Buscador de Intralot --}}
   </div>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
