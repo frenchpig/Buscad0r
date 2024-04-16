@@ -1,5 +1,6 @@
 var searchButtonServicio = document.getElementById('searchButtonServicio');
 var searchButtonIntralot = document.getElementById('searchButtonIntralot');
+var searchButtonDataLoteria = document.getElementById('searchButtonDataLoteria');
 
 searchButtonServicio.addEventListener('click', function(){
   let codigoInput  = document.getElementById('cod');
@@ -7,7 +8,7 @@ searchButtonServicio.addEventListener('click', function(){
   let data = {codigo: codigo}
   searchToDataBase(data,'/service-search', function(servicio){
     let caracteristicas = ['condicion', 'ip_loop', 'cliente','comuna','direccion','lan','protocolo','servicio','vrf','wan','nombre_equipo','ip_equipo','descripcion','puerta','vlan','posiciones']
-    replaceDataInputs(caracteristicas,servicio);
+    replaceDataInputs(caracteristicas,caracteristicas,servicio);
   });
 })
 
@@ -17,19 +18,34 @@ searchButtonIntralot.addEventListener('click',function(){
   let data = {codigo: codigo}
   searchToDataBase(data,'/intralot-search', function(intralot){
     let caracteristicas = ['LOTOS_INTRALOT','DIRECCION','CIUDAD','RED_LAN','MASCARA','IP_LOOPBACK','CTO_AGENCIA','TLF_AGENCIA','EQUIPO','Equipo2','Chip'];
-    replaceDataInputs(caracteristicas,intralot);
+    replaceDataInputs(caracteristicas,caracteristicas,intralot);
   });
 })
 
-function replaceDataInputs(caracteristicas,objeto){
+searchButtonDataLoteria.addEventListener('click',function(){
+  console.log('click');
+  let codigoInput = document.getElementById('DataLoteria_Codigo_de_servicio');
+  let codigo = codigoInput.value;
+  let data = {codigo: codigo}
+  searchToDataBase(data,'/dataloteria-search', function(dataloteria){
+    let caracteristicas = ['RED','GW','RANGO_DE_IP_DHCP','RANGO_DE_IP_DHCP_2','BROADCAST','Cod_Local','Solot','Codigo_de_servicio','Agente','Direccion','Contacto','Horario_de_atencion','Comuna','Region','Terminales','Fecha_Implementacion','Numero_de_Serie_40F_3G_4G','Numero_de_serie_211E_extender','Numero_de_Serie_SIM_CLARO','Tunnel_1_Datos','Tunnel_2_Datos','Tunnel_3_Datos','Tunnel_1_Internet','Tunnel_2_Internet','Tunnel_3_Internet','Numero_de_Serie_SIM_Internet_ISP_X','IP_Loopback_32']
+    let ids = ["DataLoteria_RED","DataLoteria_GW","DataLoteria_RANGO_DE_IP_DHCP","DataLoteria_RANGO_DE_IP_DHCP_2","DataLoteria_BROADCAST","DataLoteria_Cod_Local","DataLoteria_Solot","DataLoteria_Codigo_de_servicio","DataLoteria_Agente","DataLoteria_Direccion","DataLoteria_Contacto","DataLoteria_Horario_de_atencion","DataLoteria_Comuna","DataLoteria_Region","DataLoteria_Terminales","DataLoteria_Fecha_Implementacion","DataLoteria_Numero_de_Serie_40F_3G_4G","DataLoteria_Numero_de_serie_211E_extender","DataLoteria_Numero_de_Serie_SIM_CLARO","DataLoteria_Tunnel_1_Datos","DataLoteria_Tunnel_2_Datos","DataLoteria_Tunnel_3_Datos","DataLoteria_Tunnel_1_Internet","DataLoteria_Tunnel_2_Internet","DataLoteria_Tunnel_3_Internet","DataLoteria_Numero_de_Serie_SIM_Internet_ISP_X","DataLoteria_IP_Loopback_32"
+  ];
+    replaceDataInputs(caracteristicas,ids,dataloteria);
+  });
+});
+
+function replaceDataInputs(caracteristicas,ids,objeto){
+  index = 0;
   caracteristicas.forEach(element => {
     let valor = objeto[element];
-    let input = document.getElementById(element);
-    if (valor&&valor!=null&&valor!='NULL'&&valor!='-'){
+    let input = document.getElementById(ids[index]);
+    if (valor&&valor!=null&&valor!='NULL'&&valor!='-'&&valor!='NO APLICA'){
       input.value=valor;
     }else{
       input.value='Nulo';
     }
+    index +=1;
   });
 }
 

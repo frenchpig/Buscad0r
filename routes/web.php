@@ -32,3 +32,4 @@ Route::post('/datorutas-upload',[UploaderController::class,'uploadDatoRutas']);
 Route::post('/data-upload',[UploaderController::class,'uploadData']);
 Route::post('/service-search',[SearchController::class,'searchService']);
 Route::post('/intralot-search',[SearchController::class,'searchIntralot']);
+Route::post('/dataloteria-search',[SearchController::class,'searchDataLoteria']);
