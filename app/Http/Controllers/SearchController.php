@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Servicio;
 use App\Models\Intralot;
 use App\Models\DataLoteria;
+use App\Models\DatoRuta;
 
 class SearchController extends Controller
 {
@@ -21,5 +22,9 @@ class SearchController extends Controller
     public function searchDataLoteria (Request $request){
         $search = $request->get('codigo');
         return DataLoteria::where('Codigo_de_servicio',$search)->first();
+    }
+    public function searchDatoRutas (Request $request){
+        $search = $request->get('codigo');
+        return DatoRuta::where('NUMERO_DE_SERVICIO',$search)->first();
     }
 }

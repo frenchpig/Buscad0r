@@ -1,6 +1,7 @@
 var searchButtonServicio = document.getElementById('searchButtonServicio');
 var searchButtonIntralot = document.getElementById('searchButtonIntralot');
 var searchButtonDataLoteria = document.getElementById('searchButtonDataLoteria');
+var searchButtonDatoRuta = document.getElementById('searchButtonDatoRuta');
 
 searchButtonServicio.addEventListener('click', function(){
   let codigoInput  = document.getElementById('cod');
@@ -23,7 +24,6 @@ searchButtonIntralot.addEventListener('click',function(){
 })
 
 searchButtonDataLoteria.addEventListener('click',function(){
-  console.log('click');
   let codigoInput = document.getElementById('DataLoteria_Codigo_de_servicio');
   let codigo = codigoInput.value;
   let data = {codigo: codigo}
@@ -32,6 +32,17 @@ searchButtonDataLoteria.addEventListener('click',function(){
     let ids = ["DataLoteria_RED","DataLoteria_GW","DataLoteria_RANGO_DE_IP_DHCP","DataLoteria_RANGO_DE_IP_DHCP_2","DataLoteria_BROADCAST","DataLoteria_Cod_Local","DataLoteria_Solot","DataLoteria_Codigo_de_servicio","DataLoteria_Agente","DataLoteria_Direccion","DataLoteria_Contacto","DataLoteria_Horario_de_atencion","DataLoteria_Comuna","DataLoteria_Region","DataLoteria_Terminales","DataLoteria_Fecha_Implementacion","DataLoteria_Numero_de_Serie_40F_3G_4G","DataLoteria_Numero_de_serie_211E_extender","DataLoteria_Numero_de_Serie_SIM_CLARO","DataLoteria_Tunnel_1_Datos","DataLoteria_Tunnel_2_Datos","DataLoteria_Tunnel_3_Datos","DataLoteria_Tunnel_1_Internet","DataLoteria_Tunnel_2_Internet","DataLoteria_Tunnel_3_Internet","DataLoteria_Numero_de_Serie_SIM_Internet_ISP_X","DataLoteria_IP_Loopback_32"
   ];
     replaceDataInputs(caracteristicas,ids,dataloteria);
+  });
+});
+
+searchButtonDatoRuta.addEventListener('click',function(){
+  let codigoInput = document.getElementById('DatoRutas_NUMERO_DE_SERVICIO');
+  let codigo = codigoInput.value;
+  let data = {codigo:codigo};
+  searchToDataBase(data,'/datorutas-search',function(datoRuta){
+    let caracteristicas = ['CLIENTE','TIPO_ENLACE','LADO_A','NODO','RUTA','RACK_A','ODF_A','POS_A','LADO_B','SALA','RACK_B','ODF_B','POS_B','NIVELES_HISTORICOS','Seguimiento_y_contactos'];
+    let ids = ["DatoRutas_CLIENTE","DatoRutas_TIPO_ENLACE","DatoRutas_LADO_A","DatoRutas_NODO","DatoRutas_RUTA","DatoRutas_RACK_A","DatoRutas_ODF_A","DatoRutas_POS_A","DatoRutas_LADO_B","DatoRutas_SALA","DatoRutas_RACK_B","DatoRutas_ODF_B","DatoRutas_POS_B","DatoRutas_NIVELES_HISTORICOS","DatoRutas_Seguimiento_y_contactos"];
+    replaceDataInputs(caracteristicas,ids,datoRuta)
   });
 });
 
