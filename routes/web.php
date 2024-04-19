@@ -34,3 +34,4 @@ Route::post('/service-search',[SearchController::class,'searchService']);
 Route::post('/intralot-search',[SearchController::class,'searchIntralot']);
 Route::post('/dataloteria-search',[SearchController::class,'searchDataLoteria']);
 Route::post('/datorutas-search',[SearchController::class,'searchDatoRutas']);
+Route::post('/data-search',[SearchController::class,'searchData']);

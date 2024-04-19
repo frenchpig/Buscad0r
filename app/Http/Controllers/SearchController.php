@@ -8,6 +8,7 @@ use App\Models\Servicio;
 use App\Models\Intralot;
 use App\Models\DataLoteria;
 use App\Models\DatoRuta;
+use App\Models\Data;
 
 class SearchController extends Controller
 {
@@ -26,5 +27,9 @@ class SearchController extends Controller
     public function searchDatoRutas (Request $request){
         $search = $request->get('codigo');
         return DatoRuta::where('NUMERO_DE_SERVICIO',$search)->first();
+    }
+    public function searchData (Request $request){
+        $search = $request->get('codigo');
+        return Data::where('Equipo',$search)->first();
     }
 }

@@ -1,7 +1,8 @@
-var searchButtonServicio = document.getElementById('searchButtonServicio');
-var searchButtonIntralot = document.getElementById('searchButtonIntralot');
-var searchButtonDataLoteria = document.getElementById('searchButtonDataLoteria');
-var searchButtonDatoRuta = document.getElementById('searchButtonDatoRuta');
+let searchButtonServicio = document.getElementById('searchButtonServicio');
+let searchButtonIntralot = document.getElementById('searchButtonIntralot');
+let searchButtonDataLoteria = document.getElementById('searchButtonDataLoteria');
+let searchButtonDatoRuta = document.getElementById('searchButtonDatoRuta');
+let searchButtonData = document.getElementById('searchButtonData');
 
 searchButtonServicio.addEventListener('click', function(){
   let codigoInput  = document.getElementById('cod');
@@ -42,7 +43,18 @@ searchButtonDatoRuta.addEventListener('click',function(){
   searchToDataBase(data,'/datorutas-search',function(datoRuta){
     let caracteristicas = ['CLIENTE','TIPO_ENLACE','LADO_A','NODO','RUTA','RACK_A','ODF_A','POS_A','LADO_B','SALA','RACK_B','ODF_B','POS_B','NIVELES_HISTORICOS','Seguimiento_y_contactos'];
     let ids = ["DatoRutas_CLIENTE","DatoRutas_TIPO_ENLACE","DatoRutas_LADO_A","DatoRutas_NODO","DatoRutas_RUTA","DatoRutas_RACK_A","DatoRutas_ODF_A","DatoRutas_POS_A","DatoRutas_LADO_B","DatoRutas_SALA","DatoRutas_RACK_B","DatoRutas_ODF_B","DatoRutas_POS_B","DatoRutas_NIVELES_HISTORICOS","DatoRutas_Seguimiento_y_contactos"];
-    replaceDataInputs(caracteristicas,ids,datoRuta)
+    replaceDataInputs(caracteristicas,ids,datoRuta);
+  });
+});
+
+searchButtonData.addEventListener('click',function(){
+  let equipoInput = document.getElementById('Data_Equipo');
+  let equipo = equipoInput.value;
+  let data = {codigo: equipo};
+  searchToDataBase(data,'/data-search',function(data){
+    let caracteristicas = ['Comuna','Sitio','Proveedor','Familia','Plataforma','IP','Descriptor','Contraseña','N_Nodo'];
+    let ids = ["Data_Comuna","Data_Sitio","Data_Proveedor","Data_Familia","Data_Plataforma","Data_IP","Data_Descriptor","Data_Contraseña","Data_N_Nodo"];
+    replaceDataInputs(caracteristicas,ids,data);
   });
 });
 

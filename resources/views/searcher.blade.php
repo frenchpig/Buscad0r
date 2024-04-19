@@ -607,6 +607,95 @@
             </div>
         </div>
         {{-- Fin Buscador de DatoRutas --}}
+        {{-- Inicio Buscador de Data --}}
+        <div class="row m-2">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Data</h5>
+                        {{-- Fila 1 --}}
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Equipo" class="form-label">Equipo</label>
+                                    <input type="text" class="form-control" id="Data_Equipo">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Comuna" class="form-label">Comuna</label>
+                                    <input type="text" class="form-control" id="Data_Comuna" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Sitio" class="form-label">Sitio</label>
+                                    <input type="text" class="form-control" id="Data_Sitio" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Fila 2 --}}
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Proveedor" class="form-label">Proveedor</label>
+                                    <input type="text" class="form-control" id="Data_Proveedor" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Familia" class="form-label">Familia</label>
+                                    <input type="text" class="form-control" id="Data_Familia" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Plataforma" class="form-label">Plataforma</label>
+                                    <input type="text" class="form-control" id="Data_Plataforma" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Fila 3 --}}
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_IP" class="form-label">IP</label>
+                                    <input type="text" class="form-control" id="Data_IP" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Descriptor" class="form-label">Descriptor</label>
+                                    <input type="text" class="form-control" id="Data_Descriptor" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_Contraseña" class="form-label">Contraseña</label>
+                                    <input type="text" class="form-control" id="Data_Contraseña" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Fila 4 --}}
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="Data_N_Nodo" class="form-label">N Nodo</label>
+                                    <input type="text" class="form-control" id="Data_N_Nodo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button id="searchButtonData" class="btn btn-primary w-100">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- Fin Buscador de Data --}}
+
     </div>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
