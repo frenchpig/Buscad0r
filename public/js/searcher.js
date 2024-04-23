@@ -1,3 +1,19 @@
+function comprobarEstado(checkbox) {
+  // searcherServicio
+  let id = "searcher"+checkbox.id.substring("checkbox".length);
+  if (checkbox.checked) {
+      document.getElementById(id).removeAttribute("hidden");
+  } else {
+      document.getElementById(id).setAttribute("hidden", true);
+  }
+}
+let checkboxes = document.querySelectorAll('.form-check-input');
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+      comprobarEstado(checkbox);
+  });
+});
+
 let searchButtonServicio = document.getElementById('searchButtonServicio');
 let searchButtonIntralot = document.getElementById('searchButtonIntralot');
 let searchButtonDataLoteria = document.getElementById('searchButtonDataLoteria');
