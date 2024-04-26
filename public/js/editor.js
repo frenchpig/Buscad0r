@@ -1,11 +1,16 @@
+//Carga de botones
 let editButtonServicio = document.getElementById('editButtonServicio');
 let editButtonDataLoteria = document.getElementById('editButtonDataLoteria');
-// searcherDataLoteria
 
+/*
+  Asigancion de datos
+  Se repiten funciones similares para todos los botones
+*/
 editButtonServicio.addEventListener('click',function(){
   let inputs = document.querySelectorAll('#searcherServicio input');
   let datos = generateObject(inputs);
-  sendToDataBase("/edit-servicio",datos)
+  console.log(datos);
+  sendToDataBase("/edit-servicio",datos);
 });
 
 editButtonDataLoteria.addEventListener('click',function(){
@@ -15,6 +20,10 @@ editButtonDataLoteria.addEventListener('click',function(){
   console.log(datos);
 });
 
+/*
+  Algunas ID estan sucias (Contienen datos extras) por lo que esta funcion reemplaza
+  la basura extra para poder asignar los datos como corresponde.
+*/
 function purgeKey (data,key){
   let newData = {}
   for (let oldKey in data){
@@ -24,6 +33,11 @@ function purgeKey (data,key){
   return newData;
 }
 
+/*
+  Debido a que esta funcion se repite tantas veces
+  se prefierio convertirla en una funcion unica para asi no
+  realizar tanto codigo similar.
+*/
 function generateObject(inputs){
   let obj = {}
   inputs.forEach(element => {
@@ -32,7 +46,21 @@ function generateObject(inputs){
   return obj;
 }
 
-function sendToDataBase(route,object){
-  console.log(route);
-  console.log(object);
+function sendToDataBase(route, object) {
+  let csrfToken = $('meta[name="csrf-token"]').attr('content');
+  $.ajax({
+    url: route,
+    type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': csrfToken
+    },
+    contentType: 'application/json',
+    data: JSON.stringify(object),
+    success: function (response) {
+      alert(response.message)
+    },
+    error: function (xhr, status, error) {
+      console.error('Error', error);
+    }
+  });
 }
