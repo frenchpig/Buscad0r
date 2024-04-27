@@ -1,6 +1,8 @@
 //Carga de botones
 let editButtonServicio = document.getElementById('editButtonServicio');
+let editButtonIntralot = document.getElementById('editButtonIntralot');
 let editButtonDataLoteria = document.getElementById('editButtonDataLoteria');
+
 
 /*
   Asigancion de datos
@@ -11,6 +13,12 @@ editButtonServicio.addEventListener('click',function(){
   let datos = generateObject(inputs);
   console.log(datos);
   sendToDataBase("/edit-servicio",datos);
+});
+
+editButtonIntralot.addEventListener('click', function(){
+  let inputs = document.querySelectorAll('#searcherIntralot input');
+  let datos = generateObject(inputs);
+  sendToDataBase('/edit-intralot',datos);
 });
 
 editButtonDataLoteria.addEventListener('click',function(){

@@ -36,6 +36,26 @@ class EditorController extends Controller
         return response()->json(['message' => 'Servicio Guardado!', 'code' => 200]);
       }
       return response()->json(['message'=> 'Servicio No encontrado!','code'=> 404]);
+    }
 
+    public function editIntralot(Request $request){
+      $code = $request->COD_DE_SERVICIO;
+      $intralotOnDB = Intralot::where('COD_DE_SERVICIO',$code)->first();
+      if($intralotOnDB){
+        $intralotOnDB->LOTOS_INTRALOT = $request->LOTOS_INTRALOT;
+        $intralotOnDB->DIRECCION = $request->DIRECCION;
+        $intralotOnDB->CIUDAD = $request->CIUDAD;
+        $intralotOnDB->RED_LAN = $request->RED_LAN;
+        $intralotOnDB->MASCARA = $request->MASCARA;
+        $intralotOnDB->IP_LOOPBACK = $request->IP_LOOPBACK;
+        $intralotOnDB->CTO_AGENCIA = $request->CTO_AGENCIA;
+        $intralotOnDB->TLF_AGENCIA = $request->TLF_AGENCIA;
+        $intralotOnDB->EQUIPO = $request->EQUIPO;
+        $intralotOnDB->Equipo2 = $request->Equipo2;
+        $intralotOnDB->Chip = $request->Chip;
+        $intralotOnDB->save();
+        return response()->json(['message' => 'Intralot Guardada!','code'=>200]);
+      }
+      return response()->json(['message'=> 'Intralot No encontrada','code'=> 404]);
     }
 }

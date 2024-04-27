@@ -54,3 +54,4 @@ Route::post('/data-search',[SearchController::class,'searchData']);
   RUTAS EDITORAS
 */
 Route::post('/edit-servicio',[EditorController::class,'editService']);
+Route::post('/edit-intralot',[EditorController::class,'editIntralot']);
