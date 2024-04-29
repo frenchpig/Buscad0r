@@ -92,4 +92,28 @@ class EditorController extends Controller
       }
       return response()->json(['message'=> 'DataLoteria no encontrada','code'=> 404]);
     }
+    public function editDatoRutas(Request $request){
+      $code = $request->NUMERO_DE_SERVICIO;
+      $datoRutasOnDB = DatoRuta::where('NUMERO_DE_SERVICIO', $code)->first();
+      if ($datoRutasOnDB){
+        $datoRutasOnDB->CLIENTE = $request->CLIENTE;
+        $datoRutasOnDB->TIPO_ENLACE = $request->TIPO_ENLACE;
+        $datoRutasOnDB->LADO_A = $request->LADO_A;
+        $datoRutasOnDB->NODO = $request->NODO;
+        $datoRutasOnDB->RUTA = $request->RUTA;
+        $datoRutasOnDB->RACK_A = $request->RACK_A;
+        $datoRutasOnDB->ODF_A = $request->ODF_A;
+        $datoRutasOnDB->POS_A = $request->POS_A;
+        $datoRutasOnDB->LADO_B = $request->LADO_B;
+        $datoRutasOnDB->SALA = $request->SALA;
+        $datoRutasOnDB->RACK_B = $request->RACK_B;
+        $datoRutasOnDB->ODF_B = $request->ODF_B;
+        $datoRutasOnDB->POS_B = $request->POS_B;
+        $datoRutasOnDB->NIVELES_HISTORICOS = $request->NIVELES_HISTORICOS;
+        $datoRutasOnDB->Seguimiento_y_contactos = $request->Seguimiento_y_contactos;
+        $datoRutasOnDB->save();
+        return response()->json(['message'=>'DatoRuta Guardado!','code'=>200]);
+      }
+      return response()->json(['message' =>'DatoRuta no encontrado','code'=> 404]);
+    }
 }
