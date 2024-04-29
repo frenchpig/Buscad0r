@@ -55,3 +55,4 @@ Route::post('/data-search',[SearchController::class,'searchData']);
 */
 Route::post('/edit-servicio',[EditorController::class,'editService']);
 Route::post('/edit-intralot',[EditorController::class,'editIntralot']);
+Route::post('/edit-dataloteria',[EditorController::class,'editDataLoteria']);

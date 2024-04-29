@@ -23,9 +23,8 @@ editButtonIntralot.addEventListener('click', function(){
 
 editButtonDataLoteria.addEventListener('click',function(){
   let inputs = document.querySelectorAll('#searcherDataLoteria input');
-  let datos = generateObject(inputs);
-  datos=purgeKey(datos,"DataLoteria_")
-  console.log(datos);
+  let datos = purgeKey(generateObject(inputs),"DataLoteria_");
+  sendToDataBase('/edit-dataloteria',datos);
 });
 
 /*
