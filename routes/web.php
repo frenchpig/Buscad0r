@@ -57,3 +57,4 @@ Route::post('/edit-servicio',[EditorController::class,'editService']);
 Route::post('/edit-intralot',[EditorController::class,'editIntralot']);
 Route::post('/edit-dataloteria',[EditorController::class,'editDataLoteria']);
 Route::post('/edit-datorutas',[EditorController::class,'editDatoRutas']);
+Route::post('/edit-data',[EditorController::class,'editData']);

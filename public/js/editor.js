@@ -3,6 +3,7 @@ let editButtonServicio = document.getElementById('editButtonServicio');
 let editButtonIntralot = document.getElementById('editButtonIntralot');
 let editButtonDataLoteria = document.getElementById('editButtonDataLoteria');
 let editButtonDatoRuta = document.getElementById('editButtonDatoRuta');
+let editButonData = document.getElementById('editButtonData');
 
 
 /*
@@ -31,6 +32,11 @@ editButtonDatoRuta.addEventListener('click',function(){
   let inputs = document.querySelectorAll('#searcherDatoRutas input');
   let datos = purgeKey(generateObject(inputs),"DatoRutas_");
   sendToDataBase('/edit-datorutas',datos);
+});
+editButtonData.addEventListener('click',function(){
+  let inputs = document.querySelectorAll('#searcherData input');
+  let datos = purgeKey(generateObject(inputs),"Data_");
+  sendToDataBase('/edit-data',datos);
 });
 
 /*

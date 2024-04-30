@@ -116,4 +116,23 @@ class EditorController extends Controller
       }
       return response()->json(['message' =>'DatoRuta no encontrado','code'=> 404]);
     }
+    public function editData(Request $request){
+      $code = $request->Equipo;
+      $dataOnDB = Data::where('Equipo', $code)->first();
+      if($dataOnDB){
+        $dataOnDB->Comuna = $request->Comuna;
+        $dataOnDB->Sitio = $request->Sitio;
+        $dataOnDB->Proveedor = $request->Proveedor;
+        $dataOnDB->Familia = $request->Familia;
+        $dataOnDB->Plataforma = $request->Plataforma;
+        $dataOnDB->IP = $request->IP;
+        $dataOnDB->Descriptor = $request->Descriptor;
+        $dataOnDB->Contraseña = $request->Contraseña;
+        $dataOnDB->N_Nodo = $request->N_Nodo;
+        $dataOnDB->save();
+        return response()->json(['message'=>'Data Guardado!','code'=>200]);
+      }
+      return response()->json(['message'=> 'Data no encontrada','code'=> 404]);
+
+    }
 }
