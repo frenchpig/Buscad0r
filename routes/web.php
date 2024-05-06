@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeleterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UploaderController;
@@ -58,3 +59,11 @@ Route::post('/edit-intralot',[EditorController::class,'editIntralot']);
 Route::post('/edit-dataloteria',[EditorController::class,'editDataLoteria']);
 Route::post('/edit-datorutas',[EditorController::class,'editDatoRutas']);
 Route::post('/edit-data',[EditorController::class,'editData']);
+/*
+  RUTAS ELIMINADORAS
+*/
+Route::post('delete-service',[DeleterController::class,'deleteService']);
+Route::post('delete-intralot',[DeleterController::class,'deleteIntralot']);
+Route::post('delete-dataloteria',[DeleterController::class,'deleteDataLoteria']);
+Route::post('delete-datoruta',[DeleterController::class,'deleteDatoRuta']);
+Route::post('delete-data',[DeleterController::class,'deleteData']);
