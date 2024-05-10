@@ -190,10 +190,13 @@
                                 <button id="searchButtonServicio" class="btn btn-primary w-100">Buscar</button>
                             </div>
                             <div class="col">
-                              <button id="editButtonServicio" class="btn btn-secondary w-100">Editar</button>
+                                <button id="editButtonServicio" class="btn btn-secondary w-100">Editar</button>
                             </div>
                             <div class="col">
-                              <button id="deleteButtonServicio" class="btn btn-danger w-100">Eliminar</button>
+                                <button id="deleteButtonServicio" class="btn btn-danger w-100">Eliminar</button>
+                            </div>
+                            <div class="col">
+                                <button id="addButtonServicio" class="btn btn-success w-100">Agregar</button>
                             </div>
                         </div>
                     </div>
@@ -296,11 +299,14 @@
                                 <button id="searchButtonIntralot" class="btn btn-primary w-100">Buscar</button>
                             </div>
                             <div class="col">
-                              <button id="editButtonIntralot" class="btn btn-secondary w-100">Editar</button>
+                                <button id="editButtonIntralot" class="btn btn-secondary w-100">Editar</button>
                             </div>
                             <div class="col">
-                              <button id="deleteButtonIntralot" class="btn btn-danger w-100">Eliminar</button>
+                                <button id="deleteButtonIntralot" class="btn btn-danger w-100">Eliminar</button>
                             </div>
+                            <div class="col">
+                              <button id="addButtonIntralot" class="btn btn-success w-100">Agregar</button>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -362,8 +368,7 @@
                                 <div class="mb-3">
                                     <label for="DataLoteria_Fecha_Implementacion" class="form-label">Fecha
                                         Implementacion</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Fecha_Implementacion"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Fecha_Implementacion">
                                 </div>
                             </div>
                             <div class="col">
@@ -397,16 +402,14 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_1_Datos" class="form-label">Tunnel 1 Datos</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_1_Datos"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_1_Datos">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_1_Internet" class="form-label">Tunnel 1
                                         Internet</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_1_Internet"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_1_Internet">
                                 </div>
                             </div>
                         </div>
@@ -428,8 +431,7 @@
                                 <div class="mb-3">
                                     <label for="DataLoteria_RANGO_DE_IP_DHCP" class="form-label">RANGO DE IP
                                         DHCP</label>
-                                    <input type="text" class="form-control" id="DataLoteria_RANGO_DE_IP_DHCP"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_RANGO_DE_IP_DHCP">
                                 </div>
                             </div>
                         </div>
@@ -439,8 +441,7 @@
                                 <div class="mb-3">
                                     <label for="DataLoteria_RANGO_DE_IP_DHCP_2" class="form-label">RANGO DE IP DHCP
                                         2</label>
-                                    <input type="text" class="form-control" id="DataLoteria_RANGO_DE_IP_DHCP_2"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_RANGO_DE_IP_DHCP_2">
                                 </div>
                             </div>
                             <div class="col">
@@ -474,8 +475,7 @@
                                 <div class="mb-3">
                                     <label for="DataLoteria_Horario_de_atencion" class="form-label">Horario de
                                         Atencion</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Horario_de_atencion"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Horario_de_atencion">
                                 </div>
                             </div>
                         </div>
@@ -484,23 +484,20 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_2_Datos" class="form-label">Tunnel 2 Datos</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_2_Datos"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_2_Datos">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_3_Datos" class="form-label">Tunnel 3 Datos</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_3_Datos"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_3_Datos">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_2_Internet" class="form-label">Tunnel 2
                                         Internet</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_2_Internet"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_2_Internet">
                                 </div>
                             </div>
                         </div>
@@ -510,8 +507,7 @@
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_3_Internet" class="form-label">Tunnel 3
                                         Internet</label>
-                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_3_Internet"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_Tunnel_3_Internet">
                                 </div>
                             </div>
                             <div class="col">
@@ -525,22 +521,24 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="DataLoteria_IP_Loopback_32" class="form-label">IP Loopback 32</label>
-                                    <input type="text" class="form-control" id="DataLoteria_IP_Loopback_32"
-                                      >
+                                    <input type="text" class="form-control" id="DataLoteria_IP_Loopback_32">
                                 </div>
                             </div>
                         </div>
                         {{-- Fila 10 --}}
                         <div class="row">
                             <div class="col">
-                              <button id="searchButtonDataLoteria" class="btn btn-primary w-100">Buscar</button>
+                                <button id="searchButtonDataLoteria" class="btn btn-primary w-100">Buscar</button>
                             </div>
                             <div class="col">
-                              <button id="editButtonDataLoteria" class="btn btn-secondary w-100">Editar</button>
+                                <button id="editButtonDataLoteria" class="btn btn-secondary w-100">Editar</button>
                             </div>
                             <div class="col">
-                              <button id="deleteButtonDataLoteria" class="btn btn-danger w-100">Eliminar</button>
+                                <button id="deleteButtonDataLoteria" class="btn btn-danger w-100">Eliminar</button>
                             </div>
+                            <div class="col">
+                              <button id="addButtonDataLoteria" class="btn btn-success w-100">Agregar</button>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -656,8 +654,7 @@
                                 <div class="mb-3">
                                     <label for="DatoRutas_NIVELES_HISTORICOS" class="form-label">Niveles
                                         Históricos</label>
-                                    <input type="text" class="form-control" id="DatoRutas_NIVELES_HISTORICOS"
-                                      >
+                                    <input type="text" class="form-control" id="DatoRutas_NIVELES_HISTORICOS">
                                 </div>
                             </div>
                         </div>
@@ -667,8 +664,8 @@
                                 <div class="mb-3">
                                     <label for="DatoRutas_Seguimiento_y_contactos" class="form-label">Seguimiento y
                                         Contactos</label>
-                                    <input type="text" class="form-control" id="DatoRutas_Seguimiento_y_contactos"
-                                      >
+                                    <input type="text" class="form-control"
+                                        id="DatoRutas_Seguimiento_y_contactos">
                                 </div>
                             </div>
                         </div>
@@ -677,11 +674,14 @@
                                 <button id="searchButtonDatoRuta" class="btn btn-primary w-100">Buscar</button>
                             </div>
                             <div class="col">
-                              <button id="editButtonDatoRuta" class="btn btn-secondary w-100">Editar</button>
+                                <button id="editButtonDatoRuta" class="btn btn-secondary w-100">Editar</button>
                             </div>
                             <div class="col">
-                              <button id="deleteButtonDatoRuta" class="btn btn-danger w-100">Eliminar</button>
+                                <button id="deleteButtonDatoRuta" class="btn btn-danger w-100">Eliminar</button>
                             </div>
+                            <div class="col">
+                              <button id="addButtonDatoRuta" class="btn btn-success w-100">Agregar</button>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -771,11 +771,14 @@
                                 <button id="searchButtonData" class="btn btn-primary w-100">Buscar</button>
                             </div>
                             <div class="col">
-                              <button id="editButtonData" class="btn btn-secondary w-100">Editar</button>
+                                <button id="editButtonData" class="btn btn-secondary w-100">Editar</button>
                             </div>
                             <div class="col">
-                              <button id="deleteButtonData" class="btn btn-danger w-100">Eliminar</button>
+                                <button id="deleteButtonData" class="btn btn-danger w-100">Eliminar</button>
                             </div>
+                            <div class="col">
+                              <button id="addButtonData" class="btn btn-success w-100">Agregar</button>
+                          </div>
                         </div>
                     </div>
                 </div>
