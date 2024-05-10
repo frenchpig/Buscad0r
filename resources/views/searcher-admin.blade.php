@@ -797,6 +797,8 @@
     <script src="{{ asset('js/searcher.js') }}"></script>
     <script src="{{ asset('js/editor.js') }}"></script>
     <script src="{{ asset('js/deleter.js') }}"></script>
+    <script src="{{ asset('js/adder.js') }}"></script>
+    
 </body>
 
 </html>
