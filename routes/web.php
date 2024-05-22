@@ -6,7 +6,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UploaderController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\EditorController;
-
+use App\Http\Controllers\AdderController;
 /*
 --------------------------------------------------------------------------
   Rutas del Proyecto
@@ -67,3 +67,11 @@ Route::post('delete-intralot',[DeleterController::class,'deleteIntralot']);
 Route::post('delete-dataloteria',[DeleterController::class,'deleteDataLoteria']);
 Route::post('delete-datoruta',[DeleterController::class,'deleteDatoRuta']);
 Route::post('delete-data',[DeleterController::class,'deleteData']);
+/*
+  RUTAS DE AGREGADO
+*/
+Route::post('add-servicio',[AdderController::class,'addService']);
+Route::post('add-intralot',[AdderController::class,'addIntralot']);
+Route::post('add-dataloteria',[AdderController::class,'addDataLoteria']);
+Route::post('add-datoruta',[AdderController::class,'addDatoRuta']);
+Route::post('add-data',[AdderController::class,'addData']);

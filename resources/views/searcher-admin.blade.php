@@ -215,7 +215,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="LOTOS_INTRALOT" class="form-label">Lotos Intralot</label>
-                                    <input type="text" class="form-control" id="LOTOS_INTRALOT">
+                                    <input type="number" class="form-control" id="LOTOS_INTRALOT">
                                 </div>
                             </div>
                             <div class="col">
@@ -798,7 +798,7 @@
     <script src="{{ asset('js/editor.js') }}"></script>
     <script src="{{ asset('js/deleter.js') }}"></script>
     <script src="{{ asset('js/adder.js') }}"></script>
-    
+
 </body>
 
 </html>

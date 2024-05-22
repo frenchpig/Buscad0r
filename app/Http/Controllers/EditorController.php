@@ -133,6 +133,5 @@ class EditorController extends Controller
         return response()->json(['message'=>'Data Guardado!','code'=>200]);
       }
       return response()->json(['message'=> 'Data no encontrada','code'=> 404]);
-
     }
 }

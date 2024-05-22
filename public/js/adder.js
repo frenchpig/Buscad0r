@@ -12,11 +12,18 @@ let addButtons = [
   'addButtonDatoRuta',
   'addButtonData'
 ];
+let addRoute = [
+  'add-servicio',
+  'add-intralot',
+  'add-dataloteria',
+  'add-datoruta',
+  'add-data'
+]
 let trashKey = [
   'Servicio_',
   'Intralot_',
   'DataLoteria_',
-  'DatoRuta_',
+  'DatoRutas_',
   'Data_'
 ];
 
@@ -28,9 +35,28 @@ adderID.forEach((element,index) => {
     if(index>1){
       obj = purgeKey(obj,trashKey[index]);
     }
-    //agregar enviado a base de datos
+    addToDataBase(obj,addRoute[index]);
   });
 });
+
+function addToDataBase(data,route){
+  let csrfToken = $('meta[name="csrf-token"]').attr('content');
+  $.ajax({
+    url: route,
+    type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': csrfToken
+    },
+    contentType: 'application/json',
+    data: JSON.stringify(data),
+    success: function (response) {
+      alert(response.message)
+    },
+    error: function (xhr, status, error) {
+      console.error('Error', error);
+    }
+  });
+}
 
 // let button = document.getElementById(addButtons[0]);
 // button.addEventListener('click',function(){
