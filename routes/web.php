@@ -1,56 +1,66 @@
 <?php
 
-use App\Http\Controllers\DeleterController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeleterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UploaderController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\EditorController;
 use App\Http\Controllers\AdderController;
-/*
---------------------------------------------------------------------------
-  Rutas del Proyecto
---------------------------------------------------------------------------
-  Estas rutas son las que ayudan a navegar el proyecto, aqui se encuentran desde rutas para renderizar
-  hasta rutas para eliminar, en resumen, toda ruta necesaria del proyecto pasa por aqui
-*/
 
 /*
-  Rutas Visoras
-  Encargadas de renderizar el contenido de la pagina
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/service_loader', function (){
-    return view('services_loader');
-});
-Route::get('/buscar', function (){
-    return view('searcher');
-});
-Route::get('/admin-buscar', function (){
-  return view('searcher-admin');
-});
-/*
-  RUTAS UNICAS
-  Estas rutas se espera que sean utilizadas una sola vez al momento de cargar
-  los datos de un excel a la base de datos
-*/
-Route::post('/service-insert', [ServiceController::class, 'insertData']);
-Route::post('/intralot-upload',[UploaderController::class, 'uploadIntralot']);
-Route::post('/dataloteria-upload',[UploaderController::class, 'uploadDataLoteria']);
-Route::post('/datorutas-upload',[UploaderController::class,'uploadDatoRutas']);
-Route::post('/data-upload',[UploaderController::class,'uploadData']);
+
 /*
   RUTAS BUSCADORAS
   Estas rutas se espera que sean utilizadas para buscar datos utilizando sus codigos
   unicos.
 */
-Route::post('/service-search',[SearchController::class,'searchService']);
-Route::post('/intralot-search',[SearchController::class,'searchIntralot']);
-Route::post('/dataloteria-search',[SearchController::class,'searchDataLoteria']);
-Route::post('/datorutas-search',[SearchController::class,'searchDatoRutas']);
-Route::post('/data-search',[SearchController::class,'searchData']);
+Route::middleware(['auth'])->group(function () {
+  Route::get('/buscar', function (){
+    return view('searcher');
+  });
+  Route::post('/service-search',[SearchController::class,'searchService']);
+  Route::post('/intralot-search',[SearchController::class,'searchIntralot']);
+  Route::post('/dataloteria-search',[SearchController::class,'searchDataLoteria']);
+  Route::post('/datorutas-search',[SearchController::class,'searchDatoRutas']);
+  Route::post('/data-search',[SearchController::class,'searchData']);
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+  //Buscador con opciones de Administrador
+  Route::get('/admin-buscar', function (){
+    return view('searcher-admin');
+  });
+  //Rellenador de base de datos
+  Route::get('/service_loader', function (){
+    return view('services_loader');
+  });
+  /*
+  RUTAS UNICAS
+  Estas rutas se espera que sean utilizadas una sola vez al momento de cargar
+  los datos de un excel a la base de datos
+*/
+  Route::post('/service-insert', [ServiceController::class, 'insertData']);
+  Route::post('/intralot-upload',[UploaderController::class, 'uploadIntralot']);
+  Route::post('/dataloteria-upload',[UploaderController::class, 'uploadDataLoteria']);
+  Route::post('/datorutas-upload',[UploaderController::class,'uploadDatoRutas']);
+  Route::post('/data-upload',[UploaderController::class,'uploadData']);
+});
 /*
   RUTAS EDITORAS
 */
@@ -75,3 +85,16 @@ Route::post('add-intralot',[AdderController::class,'addIntralot']);
 Route::post('add-dataloteria',[AdderController::class,'addDataLoteria']);
 Route::post('add-datoruta',[AdderController::class,'addDatoRuta']);
 Route::post('add-data',[AdderController::class,'addData']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+Route::post('register', [RegisteredUserController::class, 'store']);
+require __DIR__.'/auth.php';
