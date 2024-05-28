@@ -49,45 +49,53 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
   //Rellenador de base de datos
   Route::get('/service_loader', function (){
     return view('services_loader');
+
   });
   /*
   RUTAS UNICAS
   Estas rutas se espera que sean utilizadas una sola vez al momento de cargar
   los datos de un excel a la base de datos
-*/
+  */
   Route::post('/service-insert', [ServiceController::class, 'insertData']);
   Route::post('/intralot-upload',[UploaderController::class, 'uploadIntralot']);
   Route::post('/dataloteria-upload',[UploaderController::class, 'uploadDataLoteria']);
   Route::post('/datorutas-upload',[UploaderController::class,'uploadDatoRutas']);
   Route::post('/data-upload',[UploaderController::class,'uploadData']);
-});
-/*
+  /*
   RUTAS EDITORAS
-*/
-Route::post('/edit-servicio',[EditorController::class,'editService']);
-Route::post('/edit-intralot',[EditorController::class,'editIntralot']);
-Route::post('/edit-dataloteria',[EditorController::class,'editDataLoteria']);
-Route::post('/edit-datorutas',[EditorController::class,'editDatoRutas']);
-Route::post('/edit-data',[EditorController::class,'editData']);
-/*
+  */
+  Route::post('/edit-servicio',[EditorController::class,'editService']);
+  Route::post('/edit-intralot',[EditorController::class,'editIntralot']);
+  Route::post('/edit-dataloteria',[EditorController::class,'editDataLoteria']);
+  Route::post('/edit-datorutas',[EditorController::class,'editDatoRutas']);
+  Route::post('/edit-data',[EditorController::class,'editData']);
+  /*
   RUTAS ELIMINADORAS
-*/
-Route::post('delete-service',[DeleterController::class,'deleteService']);
-Route::post('delete-intralot',[DeleterController::class,'deleteIntralot']);
-Route::post('delete-dataloteria',[DeleterController::class,'deleteDataLoteria']);
-Route::post('delete-datoruta',[DeleterController::class,'deleteDatoRuta']);
-Route::post('delete-data',[DeleterController::class,'deleteData']);
-/*
+  */
+  Route::post('delete-service',[DeleterController::class,'deleteService']);
+  Route::post('delete-intralot',[DeleterController::class,'deleteIntralot']);
+  Route::post('delete-dataloteria',[DeleterController::class,'deleteDataLoteria']);
+  Route::post('delete-datoruta',[DeleterController::class,'deleteDatoRuta']);
+  Route::post('delete-data',[DeleterController::class,'deleteData']);
+  /*
   RUTAS DE AGREGADO
-*/
-Route::post('add-servicio',[AdderController::class,'addService']);
-Route::post('add-intralot',[AdderController::class,'addIntralot']);
-Route::post('add-dataloteria',[AdderController::class,'addDataLoteria']);
-Route::post('add-datoruta',[AdderController::class,'addDatoRuta']);
-Route::post('add-data',[AdderController::class,'addData']);
+  */
+  Route::post('add-servicio',[AdderController::class,'addService']);
+  Route::post('add-intralot',[AdderController::class,'addIntralot']);
+  Route::post('add-dataloteria',[AdderController::class,'addDataLoteria']);
+  Route::post('add-datoruta',[AdderController::class,'addDatoRuta']);
+  Route::post('add-data',[AdderController::class,'addData']);
+  /*
+    Rutas de Registro
+    Estas rutas fueron generadas por laravel/breeze y se enontraban en auth.php, se movieron aqui
+    debido a que se busca bloquear el registro de usuarios pero no inhabilitarlo.
+  */
+  Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+  Route::post('register', [RegisteredUserController::class, 'store']);
+});
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+  return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -95,6 +103,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-Route::post('register', [RegisteredUserController::class, 'store']);
+
 require __DIR__.'/auth.php';
