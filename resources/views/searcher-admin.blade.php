@@ -57,7 +57,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="checkboxDataLoteria">
                     <label class="form-check-label" for="checkboxDataLoteria">
-                        Data Loteria
+                        Loteria
                     </label>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="checkboxDatoRutas">
                     <label class="form-check-label" for="checkboDatoRutas">
-                        Dato Rutas
+                        Fibra Oscura
                     </label>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="checkboxData">
                     <label class="form-check-label" for="checkboxData">
-                        Data
+                        Equipo
                     </label>
                 </div>
             </div>
@@ -338,7 +338,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Loteria</h5>
+                        <h5 class="card-title">Loteria</h5>
                         {{-- Fila 1 --}}
                         <div class="row">
                             <div class="col">
@@ -570,7 +570,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">DatoRutas</h5>
+                        <h5 class="card-title">Fibra Oscura</h5>
                         {{-- Fila 1 --}}
                         <div class="row">
                             <div class="col">
@@ -713,7 +713,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data</h5>
+                        <h5 class="card-title">Equipo</h5>
                         {{-- Fila 1 --}}
                         <div class="row">
                             <div class="col">
