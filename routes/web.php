@@ -9,16 +9,12 @@ use App\Http\Controllers\UploaderController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\EditorController;
 use App\Http\Controllers\AdderController;
+use App\Http\Controllers\UserAdminController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
 Route::get('/', function () {
@@ -49,8 +45,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
   //Rellenador de base de datos
   Route::get('/service_loader', function (){
     return view('services_loader');
-
   });
+  Route::get('/users',[UserAdminController::class,'index']);
+  Route::delete('/delete-user/{id}',[UserAdminController::class,'destroy'])->name('delete-user-id');
   /*
   RUTAS UNICAS
   Estas rutas se espera que sean utilizadas una sola vez al momento de cargar
