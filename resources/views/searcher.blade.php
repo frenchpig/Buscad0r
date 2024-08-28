@@ -336,7 +336,7 @@
                                     <input type="text" class="form-control" id="DataLoteria_Direccion" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Contacto" class="form-label">Contacto</label>
                                     <input type="text" class="form-control" id="DataLoteria_Contacto" readonly>
@@ -357,7 +357,7 @@
                                     <input type="text" class="form-control" id="DataLoteria_Region" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Terminales" class="form-label">Terminales</label>
                                     <input type="text" class="form-control" id="DataLoteria_Terminales" readonly>
@@ -366,7 +366,7 @@
                         </div>
                         {{-- Fila 3 --}}
                         <div class="row">
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Fecha_Implementacion" class="form-label">Fecha
                                         Implementacion</label>
@@ -382,7 +382,7 @@
                                         readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Numero_de_serie_211E_extender" class="form-label">Numero de
                                         serie 211E extender</label>
@@ -401,13 +401,13 @@
                                         readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_1_Datos" class="form-label">Tunnel 1 Datos</label>
                                     <input type="text" class="form-control" id="DataLoteria_Tunnel_1_Datos" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_1_Internet" class="form-label">Tunnel 1
                                         Internet</label>
@@ -429,7 +429,7 @@
                                     <input type="text" class="form-control" id="DataLoteria_GW" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_RANGO_DE_IP_DHCP" class="form-label">RANGO DE IP
                                         DHCP</label>
@@ -439,7 +439,7 @@
                         </div>
                         {{-- Fila 6 --}}
                         <div class="row">
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_RANGO_DE_IP_DHCP_2" class="form-label">RANGO DE IP DHCP
                                         2</label>
@@ -447,13 +447,13 @@
                                         readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_BROADCAST" class="form-label">BROADCAST</label>
                                     <input type="text" class="form-control" id="DataLoteria_BROADCAST" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Cod_Local" class="form-label">Cod Local</label>
                                     <input type="text" class="form-control" id="DataLoteria_Cod_Local" readonly>
@@ -462,19 +462,19 @@
                         </div>
                         {{-- Fila 7 --}}
                         <div class="row">
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Solot" class="form-label">Solot</label>
                                     <input type="text" class="form-control" id="DataLoteria_Solot" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Agente" class="form-label">Agente</label>
                                     <input type="text" class="form-control" id="DataLoteria_Agente" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Horario_de_atencion" class="form-label">Horario de
                                         Atencion</label>
@@ -485,19 +485,19 @@
                         </div>
                         {{-- Fila 8 --}}
                         <div class="row">
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_2_Datos" class="form-label">Tunnel 2 Datos</label>
                                     <input type="text" class="form-control" id="DataLoteria_Tunnel_2_Datos" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_3_Datos" class="form-label">Tunnel 3 Datos</label>
                                     <input type="text" class="form-control" id="DataLoteria_Tunnel_3_Datos" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_2_Internet" class="form-label">Tunnel 2
                                         Internet</label>
@@ -507,14 +507,14 @@
                         </div>
                         {{-- Fila 9 --}}
                         <div class="row">
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Tunnel_3_Internet" class="form-label">Tunnel 3
                                         Internet</label>
                                     <input type="text" class="form-control" id="DataLoteria_Tunnel_3_Internet" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" hidden>
                                 <div class="mb-3">
                                     <label for="DataLoteria_Numero_de_Serie_SIM_Internet_ISP_X"
                                         class="form-label">Numero de Serie SIM Internet ISP X</label>
