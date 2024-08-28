@@ -43,6 +43,15 @@
                     </label>
                 </div>
             </div>
+            {{-- Data --}}
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="checkboxData">
+                    <label class="form-check-label" for="checkboxData">
+                        Equipo
+                    </label>
+                </div>
+            </div>
             {{-- Checkbox Intralot --}}
             <div class="col">
                 <div class="form-check">
@@ -67,15 +76,6 @@
                     <input class="form-check-input" type="checkbox" value="" id="checkboxDatoRutas">
                     <label class="form-check-label" for="checkboDatoRutas">
                         Fibra Oscura
-                    </label>
-                </div>
-            </div>
-            {{-- Data --}}
-            <div class="col">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="checkboxData">
-                    <label class="form-check-label" for="checkboxData">
-                        Equipo
                     </label>
                 </div>
             </div>
