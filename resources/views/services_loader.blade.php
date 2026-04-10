@@ -9,8 +9,38 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="row">
-        <div class="col-3">
+    <div class="container mt-4">
+        <!-- Switch de Modo de Carga -->
+        <div class="mb-4">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="toggleMassiveLoad">
+                <label class="form-check-label" for="toggleMassiveLoad">
+                    <strong>Usar Carga Masiva (Archivo de Base de Datos Exportada)</strong>
+                </label>
+            </div>
+            <small class="text-muted">Alterna entre cargar la base de datos completa de un solo archivo (formato exportado) o el formato original (un archivo por cada tabla).</small>
+        </div>
+
+        <!-- Cargador Masivo (Oculto por defecto) -->
+        <div class="row d-none" id="massiveLoadSection">
+            <div class="col-6">
+                <div class="card bg-dark text-white mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Carga Masiva de Base de Datos</h5>
+                        <p class="card-text">Seleccione el archivo consolidado (.xlsx) generado desde el botón "Exportar Base de Datos" (1 solo archivo con múltiples hojas). El sistema procesará cada pestaña hacia la tabla correspondiente.</p>
+                        <div class="mb-3">
+                            <label for="fileInputMassive" class="form-label">Archivo Completo (BD Exportada):</label>
+                            <input type="file" class="form-control" id="fileInputMassive" name="fileInputMassive" accept=".xls, .xlsx">
+                        </div>
+                        <button id="loadButtonMassive" class="btn btn-success w-100">Iniciar Carga Masiva</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cargadores Originales -->
+        <div class="row" id="originalLoadersSection">
+            <div class="col-3">
             {{-- Cargador de Servicios --}}
             <div class="mb-3">
                 <label for="fileInput" class="form-label">Seleccione el archivo de servicios:</label>
@@ -48,8 +78,9 @@
                 <label for="fileInputData" class="form-label">Seleccione el archivo de Data:</label>
                 <input type="file" class="form-control" id="fileInputData" name="fileInputData" accept=".xls, .xlsx">
             </div>
-                <button id="loadButtonData" class="btn btn-primary">Cargar</button>
+            <button id="loadButtonData" class="btn btn-primary">Cargar</button>
         </div>
+    </div>
     </div>
     
     
@@ -57,6 +88,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/tables_loader.js') }}"></script>
+    <script src="{{ asset('js/tables_loader.js') }}?v={{ time() }}"></script>
 </body>
 </html>

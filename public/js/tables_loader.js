@@ -131,5 +131,61 @@ function saveToDataBase(dataArray){
     });
 }
 
+// Lógica de UI Toggle
+var toggleMassiveLoad = document.getElementById('toggleMassiveLoad');
+var massiveLoadSection = document.getElementById('massiveLoadSection');
+var originalLoadersSection = document.getElementById('originalLoadersSection');
 
+toggleMassiveLoad.addEventListener('change', function() {
+    if(this.checked) {
+        massiveLoadSection.classList.remove('d-none');
+        originalLoadersSection.classList.add('d-none');
+    } else {
+        massiveLoadSection.classList.add('d-none');
+        originalLoadersSection.classList.remove('d-none');
+    }
+});
 
+// Lógica de Carga Masiva consolidada
+var loadButtonMassive = document.getElementById('loadButtonMassive');
+loadButtonMassive.addEventListener('click', function() {
+    let fileInput = document.getElementById('fileInputMassive');
+    let file = fileInput.files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            var contents = e.target.result;
+            var workbook = XLSX.read(contents, { type: 'binary' });
+
+            // Mapeo de Pestañas a Rutas del backend
+            const mapSheets = {
+                "Servicios": "/service-insert",
+                "Intralot": "/intralot-upload",
+                "Loteria": "/dataloteria-upload",
+                "Fibra Oscura": "/datorutas-upload",
+                "Equipos": "/data-upload"
+            };
+
+            workbook.SheetNames.forEach(function(sheetName) {
+                if (mapSheets[sheetName]) {
+                    console.log(`Procesando hoja: ${sheetName}`);
+                    var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                    // Se arma el array y se manda
+                    var dataArray = [XL_row_object];
+                    if (sheetName === "Servicios") {
+                        // El servicio esta programado distinto en su send 
+                        saveToDataBase(dataArray);
+                    } else {
+                        sendToDatabase(dataArray, mapSheets[sheetName]);
+                    }
+                } else {
+                    console.warn(`Pestaña ignorada (no reconocida): ${sheetName}`);
+                }
+            });
+            alert('Proceso de Carga Masiva Iniciado. Revise la consola para detalles de red.');
+        };
+        reader.readAsBinaryString(file);
+    } else {
+        alert('Por favor, seleccione el archivo consolidado de Base de Datos Exportada.');
+    }
+});

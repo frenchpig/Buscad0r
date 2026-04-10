@@ -34,6 +34,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exportModal">Exportar Base de Datos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/service_loader">Cargar Base de Datos</a>
+          </li>
         </ul>
       </div>
     </div>
