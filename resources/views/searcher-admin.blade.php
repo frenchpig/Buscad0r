@@ -855,6 +855,48 @@
     <script src="{{ asset('js/adder.js') }}"></script>
     <script src="{{ asset('js/export_database.js') }}"></script>
 
+    <!-- Force Password Change Modal (SECURITY) -->
+    @if(Auth::check() && Auth::user()->force_password_change)
+    <div class="modal fade" id="forcePasswordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="forcePasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-dark bg-light">
+                <form action="{{ route('force.password.update') }}" method="POST">
+                    @csrf
+                    <div class="modal-header bg-danger text-white border-0">
+                        <h5 class="modal-title" id="forcePasswordModalLabel">Actualización Obligatoria de Contraseña</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Por motivos de seguridad, debe cambiar su contraseña temporal por una nueva antes de poder continuar.</p>
+                        
+                        @if ($errors->any())
+                            <div class="alert alert-danger">Las contraseñas no coinciden o no cumplen con los requisitos (mínimo 8 caracteres).</div>
+                        @endif
+
+                        <div class="mb-3">
+                            <label for="new_password" class="form-label">Nueva Contraseña</label>
+                            <input type="password" class="form-control" id="new_password" name="new_password" required minlength="8">
+                        </div>
+                        <div class="mb-3">
+                            <label for="new_password_confirmation" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" required minlength="8">
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-danger w-100">Guardar y Continuar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var forceModal = new bootstrap.Modal(document.getElementById('forcePasswordModal'));
+            forceModal.show();
+        });
+    </script>
+    @endif
+
 </body>
 
 </html>

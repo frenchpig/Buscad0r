@@ -40,6 +40,20 @@
         <!-- Main Content -->
         <div class="card">
           <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="card-title">Listado de Usuarios</h5>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createUserModal">
+                  <i class="bi bi-person-plus-fill"></i> Crear Usuario
+              </button>
+            </div>
+            
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            @if($errors->any())
+                <div class="alert alert-danger">Error al crear el usuario. Revisa los datos.</div>
+            @endif
+
             <table class="table">
               <thead>
                 <tr>
@@ -80,6 +94,44 @@
 
       </div>
     </div>
+
+    <!-- Modal Crear Usuario -->
+    <div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="createUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="modal-content" action="{{ route('store-user') }}" method="POST">
+          @csrf
+          <div class="modal-header">
+            <h5 class="modal-title" id="createUserModalLabel">Crear Nuevo Usuario</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-warning">
+              <small><b>Nota:</b> El usuario será creado con la contraseña inicial <code>123456</code>. Al modelo se le forzará cambiarla en su primer inicio de sesión.</small>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="role" class="form-label">Rol</label>
+              <select class="form-select" id="role" name="role" required>
+                <option value="user">Usuario (Lectura / Gestores)</option>
+                <option value="admin">Administrador (Control Total)</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Crear Usuario</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

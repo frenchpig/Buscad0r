@@ -18,9 +18,7 @@ use App\Http\Controllers\ExportController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
   RUTAS BUSCADORAS
@@ -31,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/buscar', function (){
     return view('searcher');
   });
+  Route::post('/force-password-update', [\App\Http\Controllers\ForcePasswordController::class, 'update'])->name('force.password.update');
   Route::post('/service-search',[SearchController::class,'searchService']);
   Route::post('/intralot-search',[SearchController::class,'searchIntralot']);
   Route::post('/dataloteria-search',[SearchController::class,'searchDataLoteria']);
@@ -48,6 +47,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     return view('services_loader');
   });
   Route::get('/users',[UserAdminController::class,'index']);
+  Route::post('/users',[UserAdminController::class,'store'])->name('store-user');
   Route::delete('/delete-user/{id}',[UserAdminController::class,'destroy'])->name('delete-user-id');
   
   //Ruta de exportacion total
@@ -86,18 +86,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
   Route::post('add-dataloteria',[AdderController::class,'addDataLoteria']);
   Route::post('add-datoruta',[AdderController::class,'addDatoRuta']);
   Route::post('add-data',[AdderController::class,'addData']);
-  /*
-    Rutas de Registro
-    Estas rutas fueron generadas por laravel/breeze y se enontraban en auth.php, se movieron aqui
-    debido a que se busca bloquear el registro de usuarios pero no inhabilitarlo.
-  */
-  Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-  Route::post('register', [RegisteredUserController::class, 'store']);
+
 });
 
-Route::get('/dashboard', function () {
-  return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
