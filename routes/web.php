@@ -10,6 +10,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\EditorController;
 use App\Http\Controllers\AdderController;
 use App\Http\Controllers\UserAdminController;
+use App\Http\Controllers\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
   });
   Route::get('/users',[UserAdminController::class,'index']);
   Route::delete('/delete-user/{id}',[UserAdminController::class,'destroy'])->name('delete-user-id');
+  
+  //Ruta de exportacion total
+  Route::get('/export-database', [ExportController::class, 'getFullDatabase']);
   /*
   RUTAS UNICAS
   Estas rutas se espera que sean utilizadas una sola vez al momento de cargar
