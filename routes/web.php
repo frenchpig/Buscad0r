@@ -27,7 +27,8 @@ use App\Http\Controllers\ExportController;
 */
 Route::middleware(['auth'])->group(function () {
   Route::get('/buscar', function (){
-    return view('searcher');
+    $searcherConfigs = \App\Models\SearcherConfig::with('fields')->get();
+    return view('searcher', compact('searcherConfigs'));
   });
   Route::post('/force-password-update', [\App\Http\Controllers\ForcePasswordController::class, 'update'])->name('force.password.update');
   Route::post('/service-search',[SearchController::class,'searchService']);
@@ -40,8 +41,13 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
   //Buscador con opciones de Administrador
   Route::get('/admin-buscar', function (){
-    return view('searcher-admin');
+    $searcherConfigs = \App\Models\SearcherConfig::with('fields')->get();
+    return view('searcher-admin', compact('searcherConfigs'));
   });
+
+  Route::get('/admin/builder', [\App\Http\Controllers\SearcherBuilderController::class, 'index'])->name('builder.index');
+  Route::post('/admin/builder/update', [\App\Http\Controllers\SearcherBuilderController::class, 'update'])->name('builder.update');
+
   //Rellenador de base de datos
   Route::get('/service_loader', function (){
     return view('services_loader');
