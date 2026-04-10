@@ -79,10 +79,12 @@ function replaceDataInputs(caracteristicas,ids,objeto){
   caracteristicas.forEach(element => {
     let valor = objeto[element];
     let input = document.getElementById(ids[index]);
-    if (valor&&valor!=null&&valor!='NULL'&&valor!='-'&&valor!='NO APLICA'){
-      input.value=valor;
-    }else{
-      input.value='Nulo';
+    if (input) {
+      if (valor&&valor!=null&&valor!='NULL'&&valor!='-'&&valor!='NO APLICA'){
+        input.value=valor;
+      }else{
+        input.value='Nulo';
+      }
     }
     index +=1;
   });
