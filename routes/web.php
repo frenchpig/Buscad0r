@@ -48,6 +48,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
   });
   Route::get('/users',[UserAdminController::class,'index']);
   Route::post('/users',[UserAdminController::class,'store'])->name('store-user');
+  Route::post('/users/{id}/generate-code',[UserAdminController::class,'generateCode'])->name('generate-code-user');
   Route::delete('/delete-user/{id}',[UserAdminController::class,'destroy'])->name('delete-user-id');
   
   //Ruta de exportacion total

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserAdminController extends Controller
 {
@@ -40,5 +41,17 @@ class UserAdminController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         return redirect()->back()->with('success','Usuario eliminado correctamente.');
+    }
+
+    public function generateCode($id){
+        $user = User::findOrFail($id);
+        $tempCode = strtoupper(Str::random(6));
+        
+        $user->password = Hash::make($tempCode);
+        $user->force_password_change = true;
+        $user->password_reset_requested = false;
+        $user->save();
+
+        return redirect()->back()->with('success', "Código temporal generado exitosamente para el usuario {$user->name}: {$tempCode}");
     }
 }

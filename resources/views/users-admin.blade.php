@@ -69,20 +69,30 @@
                 @foreach($users as $user)
                   <tr>
                     <th scope="row">{{ $user->id }}</th>
-                    <td>{{ $user->name }}</td>
+                    <td>
+                      {{ $user->name }}
+                      @if($user->password_reset_requested)
+                        <span class="badge bg-danger ms-2"><i class="bi bi-exclamation-triangle"></i> Restauración Solicitada</span>
+                      @endif
+                    </td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role }}</td>
                     <td>
-                      <div class="row">
-                        <div class="col">
-                          <form action="{{ route('delete-user-id', $user->id) }}" method="POST">
+                      <div class="d-flex gap-2">
+                        <form action="{{ route('generate-code-user', $user->id) }}" method="POST">
                           @csrf
-                          @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')">
-                              <i class="bi bi-trash-fill"></i>
-                            </button>
-                          </form>
-                        </div>
+                          <button type="submit" class="btn btn-warning" title="Generar Código Temporal" onclick="return confirm('¿Estás seguro que deseas generar un nuevo código temporal y sobrescribir la contraseña actual para este usuario?')">
+                            <i class="bi bi-key-fill"></i>
+                          </button>
+                        </form>
+                        
+                        <form action="{{ route('delete-user-id', $user->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')">
+                            <i class="bi bi-trash-fill"></i>
+                          </button>
+                        </form>
                       </div>
                     </td>
                   </tr>

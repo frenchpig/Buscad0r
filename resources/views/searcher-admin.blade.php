@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -874,11 +875,17 @@
 
                         <div class="mb-3">
                             <label for="new_password" class="form-label">Nueva Contraseña</label>
-                            <input type="password" class="form-control" id="new_password" name="new_password" required minlength="8">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="new_password" name="new_password" required minlength="8">
+                                <button class="btn btn-outline-secondary toggle-password" type="button"><i class="bi bi-eye"></i></button>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="new_password_confirmation" class="form-label">Confirmar Contraseña</label>
-                            <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" required minlength="8">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" required minlength="8">
+                                <button class="btn btn-outline-secondary toggle-password" type="button"><i class="bi bi-eye"></i></button>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer border-0">
@@ -893,6 +900,20 @@
         document.addEventListener("DOMContentLoaded", function() {
             var forceModal = new bootstrap.Modal(document.getElementById('forcePasswordModal'));
             forceModal.show();
+
+            document.querySelectorAll('.toggle-password').forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    const icon = this.querySelector('i');
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.classList.replace('bi-eye', 'bi-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        icon.classList.replace('bi-eye-slash', 'bi-eye');
+                    }
+                });
+            });
         });
     </script>
     @endif
